@@ -1,4 +1,4 @@
-FROM homeassistant/qemux86-64-homeassistant:0.62.1
+FROM homeassistant/qemux86-64-homeassistant:0.63
 # add env
 ENV LANG C.UTF-8
 RUN mkdir /usr/lib/python3.6/site-packages/hass_frontend/js/ \
