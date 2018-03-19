@@ -1,5 +1,5 @@
 #!/bin/bash
-HA_VERSION=$(curl -Ls https://raw.githubusercontent.com/home-assistant/hassio/dev/version.json | jq -r ".homeassistant")
+HA_VERSION=$(curl -Ls https://raw.githubusercontent.com/home-assistant/hassio/master/version.json | jq -r ".homeassistant")
 NERO_HA_VERSION=$(cd "$(dirname "$0")"; grep "FROM" Dockerfile | awk -F ":" '{print $2}')
 cd "$(dirname "$0")"
 
