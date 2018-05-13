@@ -7,6 +7,13 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositorie
 	&& echo "trusted-host =  mirrors.aliyun.com" >> /root/.pip/pip.conf \
 	&& echo "index-url = http://mirrors.aliyun.com/pypi/simple" >> /root/.pip/pip.conf \
 	&& sed -ie "s/^_GROUP_TYPES.*/_GROUP_TYPES = [(STATE_ON, STATE_OFF), (STATE_HOME, STATE_NOT_HOME),('雨','晴天'),('晴夜','多云'),('阴','雪'),('风','雾'),/g" /usr/lib/python3.6/site-packages/homeassistant/components/group/__init__.py \
-	&& pip3 install -U pyVmomi
+	&& pip3 install -U pyVmomi \
+	&& cd /usr/lib/python3.6/site-packages \
+	&& rm -rf miio \
+	&& apk update \
+	&& apk add --no-cache git \
+	&& git clone https://github.com/rytilahti/python-miio.git \
+	&& cp -Raf python-miio/miio ./ \
+	&& rm -rf python-miio
 WORKDIR /config
 CMD [ "python3", "-m", "homeassistant", "--config", "/config" ]
