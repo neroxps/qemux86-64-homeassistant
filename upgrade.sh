@@ -1,5 +1,9 @@
 #!/bin/bash
-HA_VERSION=$(curl -Ls https://raw.githubusercontent.com/home-assistant/hassio/master/version.json | jq -r ".homeassistant")
+if [[ -z $1  ]]; then
+	HA_VERSION=$(curl -Ls https://raw.githubusercontent.com/home-assistant/hassio/master/version.json | jq -r ".homeassistant")
+else
+	HA_VERSION="$1"
+fi
 NERO_HA_VERSION=$(cd "$(dirname "$0")"; grep "FROM" Dockerfile | awk -F ":" '{print $2}')
 cd "$(dirname "$0")"
 
