@@ -1,4 +1,4 @@
-FROM homeassistant/qemux86-64-homeassistant:0.70.1
+FROM homeassistant/qemux86-64-homeassistant:0.71.0
 # add env
 ENV LANG C.UTF-8
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories \
