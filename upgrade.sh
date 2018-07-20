@@ -13,7 +13,7 @@ function chack_hub() { test "$(curl -s -S 'https://registry.hub.docker.com/v2/re
 if version_gt ${HA_VERSION} ${NERO_HA_VERSION} && chack_hub ; then
 	sed -i "s/${NERO_HA_VERSION}/${HA_VERSION}/" Dockerfile
 	git commit -m "upgrade ${HA_VERSION}" Dockerfile
-	git push origin master
 	git tag ${HA_VERSION}
 	git push origin ${HA_VERSION}
+	git push origin master
 fi
