@@ -1,6 +1,6 @@
 #!/bin/bash
 if [[ -z $1  ]]; then
-	HA_VERSION=$(curl -Ls https://s3.amazonaws.com/hassio-version/stable.json | jq -r '.homeassistant.default')
+	HA_VERSION=$(curl -Ls --socks5 127.0.0.1:1080 https://s3.amazonaws.com/hassio-version/stable.json | jq -r '.homeassistant.default')
 else
 	HA_VERSION="$1"
 fi
