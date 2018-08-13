@@ -1,0 +1,27 @@
+{
+  "channel": "stable",
+  "supervisor": "125",
+  "homeassistant": {
+    "default": "0.75.3",
+    "qemux86": "0.75.3",
+    "qemux86-64": "0.75.3",
+    "qemuarm": "0.75.3",
+    "qemuarm-64": "0.75.3",
+    "intel-nuc": "0.75.3",
+    "raspberrypi": "0.75.3",
+    "raspberrypi2": "0.75.3",
+    "raspberrypi3": "0.75.3",
+    "raspberrypi3-64": "0.75.3",
+    "tinker": "0.75.3"
+  },
+  "hassos": {
+    "ova": "1.9",
+    "rpi": "1.9",
+    "rpi0-w": "1.9",
+    "rpi2": "1.9",
+    "rpi3": "1.9",
+    "rpi3-64": "1.9",
+    "tinker": "2.1"
+  },
+  "hassos-cli": "6"
+}
