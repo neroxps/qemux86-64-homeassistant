@@ -1,6 +1,16 @@
 #!/bin/bash
+
+# update stable.jsons
+new_stable=$(curl -Ls --socks5 127.0.0.1:1080 https://s3.amazonaws.com/hassio-version/stable.json)
+new_md5=$(echo "${new_stable}" | md5sum)
+old_md5=$(cat stable.json | md5sum)
+if [[ ${new_md5} != ${old_md5} ]]; then
+	echo "${new_stable}" > stable.json
+fi
+
+# home-assistant update
 if [[ -z $1  ]]; then
-	HA_VERSION=$(curl -Ls --socks5 127.0.0.1:1080 https://s3.amazonaws.com/hassio-version/stable.json | jq -r '.homeassistant.default')
+	HA_VERSION=$(echo "${new_stable}" | jq -r '.homeassistant.default')
 else
 	HA_VERSION="$1"
 fi
@@ -18,10 +28,4 @@ if version_gt ${HA_VERSION} ${NERO_HA_VERSION} && chack_hub ; then
 	git push origin master
 fi
 
-# update stable.jsons
-new_stable=$(curl -Ls --socks5 127.0.0.1:1080 https://s3.amazonaws.com/hassio-version/stable.json)
-new_md5=$(echo "${new_stable}" | md5sum)
-old_md5=$(cat stable.json | md5sum)
-if [[ ${new_md5} != ${old_md5} ]]; then
-	echo "${new_stable}" > stable.json
-fi
+
