@@ -20,12 +20,16 @@ cd "$(dirname "$0")"
 function version_gt() { test "$(echo "$@" | tr " " "\n" | sort -V | head -n 1)" != "$1"; }
 function chack_hub() { test "$(curl -s -S 'https://registry.hub.docker.com/v2/repositories/homeassistant/qemux86-64-homeassistant/tags/' | jq '."results"[]["name"]' |sort |grep -w "${HA_VERSION}")"; }
 
-if version_gt ${HA_VERSION} ${NERO_HA_VERSION} && chack_hub ; then
-	sed -i "s/${NERO_HA_VERSION}/${HA_VERSION}/" Dockerfile
-	git commit -m "upgrade ${HA_VERSION}" Dockerfile stable.json
-	git tag ${HA_VERSION}
-	git push origin ${HA_VERSION}
-	git push origin master
+if version_gt ${HA_VERSION} ${NERO_HA_VERSION} ; then
+	if chack_hub ; then
+		sed -i "s/${NERO_HA_VERSION}/${HA_VERSION}/" Dockerfile
+		git commit -m "upgrade ${HA_VERSION}" Dockerfile stable.json
+		git tag ${HA_VERSION}
+		git push origin ${HA_VERSION}
+		git push origin master
+	else
+		echo '官方未推送版本至 Hub，升级取消。'
+	fi
+else
+	echo "当版本: ${NERO_HA_VERSION} 最新版本: ${HA_VERSION} 无需升级。"
 fi
-
-
