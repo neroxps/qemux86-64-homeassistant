@@ -2,20 +2,20 @@
   "channel": "stable",
   "supervisor": "142",
   "homeassistant": {
-    "default": "0.86.3",
-    "qemux86": "0.86.3",
-    "qemux86-64": "0.86.3",
-    "qemuarm": "0.86.3",
-    "qemuarm-64": "0.86.3",
-    "intel-nuc": "0.86.3",
-    "raspberrypi": "0.86.3",
-    "raspberrypi2": "0.86.3",
-    "raspberrypi3": "0.86.3",
-    "raspberrypi3-64": "0.86.3",
-    "tinker": "0.86.3",
-    "odroid-c2": "0.86.3",
-    "odroid-xu": "0.86.3",
-    "orangepi-prime": "0.86.3"
+    "default": "0.86.4",
+    "qemux86": "0.86.4",
+    "qemux86-64": "0.86.4",
+    "qemuarm": "0.86.4",
+    "qemuarm-64": "0.86.4",
+    "intel-nuc": "0.86.4",
+    "raspberrypi": "0.86.4",
+    "raspberrypi2": "0.86.4",
+    "raspberrypi3": "0.86.4",
+    "raspberrypi3-64": "0.86.4",
+    "tinker": "0.86.4",
+    "odroid-c2": "0.86.4",
+    "odroid-xu": "0.86.4",
+    "orangepi-prime": "0.86.4"
   },
   "hassos": {
     "ova": "1.13",
@@ -24,11 +24,11 @@
     "rpi2": "1.13",
     "rpi3": "1.13",
     "rpi3-64": "1.13",
-    "tinker": "2.6",
-    "odroid-c2": "2.6",
-    "odroid-xu4": "2.6",
-    "opi-prime": "2.6",
-    "intel-nuc": "2.6"
+    "tinker": "2.7",
+    "odroid-c2": "2.7",
+    "odroid-xu4": "2.7",
+    "opi-prime": "2.7",
+    "intel-nuc": "2.7"
   },
   "hassos-cli": "8"
 }
